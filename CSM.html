@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chainsaw Man</title>
+	<link rel="icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/105863400">
+    <style>
+        body {
+            font-family: monospace;
+            margin: 0;
+            padding: 0;
+			background-color: rgb(153, 122, 112);
+            
+        }
+	    ::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in Chrome, Safari, and newer browsers */
+}
+        main {
+			max-width: 100%;
+            
+            color: #fff;
+			margin: 0 auto;
+			max-width: 1000px;
+            padding: 20px;
+        }
+        img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+    border-radius: 0px;
+    box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+@media (prefers-color-scheme: dark) {
+
+    main {
+            
+        }
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+	border-color: rgb(255 255 255 / 30%);
+    border-width: 4px;
+	font-family: monospace;
+    display: block;
+    margin: 0 auto;
+	color: #fff;
+	background-color: rgb(255 123 59 / 0%);
+}
+
+select option {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: rgba(248, 114, 49, 0.5);
+    color: #333;
+}
+
+select option[value^="CH"] {
+    color: rgba(176, 196, 222,);
+}
+
+p {
+	text-align: center;
+}
+
+h2 {
+	text-align: center;
+	color: rgba(255, 255, 255, 1);
+}
+
+#prevBtn, #nextBtn {
+    background-color: rgba(248 114 49 / 0%);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+	font-family: monospace;
+	border-radius: 5px;
+	border: 6px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  #prevBtn:hover, #nextBtn:hover {
+    background-color: rgba(248, 114, 120, 0%);
+}
+	    #goUpBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #fa8532;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #prevBtnd, #nextBtnd {
+    background-color: rgba(248 114 49 / 0%);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	  font-family: monospace;
+    margin: 4px 2px;
+    cursor: pointer;
+	border-radius: 5px;
+	border: 6px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  #prevBtnd:hover, #nextBtnd:hover {
+    background-color: rgba(248, 114, 120, 0%);
+}
+	    #goUpBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #fa8532;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  @media (max-width:992px) {
+      .c-eStXTg {
+		display: none;
+	  }
+    }
+  
+.c-eStXTg {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 100%
+                }
+				
+	.c-eStXTg-iiKFqHT-css {
+                    background-image: url(./noise-light.png);
+                    z-index: -1;
+                }
+				
+				.bw {
+  filter: grayscale(100%);
+}
+
+.saturation {
+  filter: saturate(115%); /* Increases saturation by 15% */
+}
+
+    </style>
+</head>
+	
+<body>
+	<script>
+    // Force the page to scroll to the top on refresh
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
+  </script>
+<div class="c-eStXTg c-eStXTg-iiKFqHT-css"></div>
+<main>
+    <section>
+        <a href="https://wayexit995.github.io/CSM/Manga/Index.html"></a><h2>Chainsaw Man</h2></a>
+        
+    
+	
+		<div>
+		<select id="folderSelect">
+		</select>
+		<br/>
+		<div>
+			<p>
+				<button id="prevBtn">Previous</button>
+				<button id="nextBtn">Next</button>
+			</p>
+		</div>
+	</div>
+	
+	 <div class="" style="
+    display: flex;
+    align-items: baseline;
+    padding: 20px;
+    border-radius: 8px;
+    width: fit-content;
+    margin: 0 auto;
+">
+        <label for="colorPicker" style="
+    color: white;
+    font-family: monospace;
+    margin-right: 10px;
+">Pick Background Color:</label>
+        <input type="color" id="colorPicker" name="background-color" value="#ffffff" style="block-size: 22px;">
+    </div>
+	<label>
+  <input type="checkbox" id="bwToggle">
+  Black & White
+</label>
+
+<label>
+  <input type="checkbox" id="saturationToggle">
+  Saturation Boost (15%)
+</label>
+
+	<br/>
+	<div id="imageContainer">
+	</div>
+	</br>
+	
+	<div>
+		<select id="folderSelectd" style="
+    display: none;
+">
+		</select>
+		<br/>
+		<div>
+			<p>
+				<button id="prevBtnd">Previous</button>
+				<button id="nextBtnd">Next</button>
+			</p>
+		</div>
+	</div>
+	</br>
+	<a style="cursor: pointer;
+    text-align: center;
+    text-decoration: underline;
+    font-size: larger;
+    display: block;" id="scrollToTopBtn" onclick="scrollToTop()">Scroll to Top</a>
+        </br>
+		</br>
+		<a style="cursor: pointer;
+    text-align: center;
+    text-decoration: underline;
+    font-size: larger;
+    display: block; color: #fff;" href="./Index.html">@CSM MAIN PAGE</a>
+	</br>
+	    <p>added visitor counter 06/DEC/2024</p>
+	    
+	    <p><script type="text/javascript" src="https://freehitcounters.org/count/gwme"></script><br>
+ <a href='https://www.easybooking.eu/'>Buchungssoftware Hotels</a> <script type='text/javascript' src='https://www.whomania.com/ctr?id=4917c53a8353bd72187791a8213fc15d8b856ff6'></script></p>
+    </section>
+</main>
+<script>
+        // Get the color picker and body elements
+        const colorPicker = document.getElementById('colorPicker');
+        const body = document.body;
+
+        // Check if a color is already stored in localStorage
+        const savedColor = localStorage.getItem('bgColor');
+        if (savedColor) {
+            body.style.backgroundColor = savedColor;
+            colorPicker.value = savedColor;
+        } else {
+            colorPicker.value = "#68607b"; // Set default to grey if no color is saved
+            body.style.backgroundColor = colorPicker.value;
+        }
+
+        // Change the background color and save it to localStorage when a new color is picked
+        colorPicker.addEventListener('input', function() {
+            const selectedColor = colorPicker.value;
+            body.style.backgroundColor = selectedColor;
+            localStorage.setItem('bgColor', selectedColor);
+        });
+		
+		
+		
+		
+		
+		
+		const bwToggle = document.getElementById('bwToggle');
+const saturationToggle = document.getElementById('saturationToggle');
+
+// Function to apply black & white filter to all images
+function applyBWFilter() {
+  const images = document.querySelectorAll('img');
+  images.forEach(img => {
+    if (bwToggle.checked) {
+      img.classList.add('bw');
+    } else {
+      img.classList.remove('bw');
+    }
+  });
+}
+
+// Function to apply saturation boost to all images
+function applySaturationFilter() {
+  const images = document.querySelectorAll('img');
+  images.forEach(img => {
+    if (saturationToggle.checked) {
+      img.classList.add('saturation');
+    } else {
+      img.classList.remove('saturation');
+    }
+  });
+}
+
+// Save the state of each checkbox when changed and apply corresponding filters
+bwToggle.addEventListener('change', () => {
+  localStorage.setItem('bwToggle', bwToggle.checked);
+  applyBWFilter();
+});
+
+saturationToggle.addEventListener('change', () => {
+  localStorage.setItem('saturationToggle', saturationToggle.checked);
+  applySaturationFilter();
+});
+
+// Load the saved states from localStorage on page load
+window.addEventListener('load', () => {
+  bwToggle.checked = localStorage.getItem('bwToggle') === 'true';
+  saturationToggle.checked = localStorage.getItem('saturationToggle') === 'true';
+  applyBWFilter();
+  applySaturationFilter();
+});
+
+    </script>
+<script>
+        // Function to scroll to the top of the page instantly
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'auto' });
+        }
+    </script>
+	<script>
+	var imageContainer = document.getElementById('imageContainer');
+        var folderSelect = document.getElementById('folderSelect');
+        var prevBtnd = document.getElementById('prevBtnd');
+        var nextBtnd = document.getElementById('nextBtnd');
+
+        var folderImages = {
+                
+            
+            // Add more entries as needed
+        };
+
+        // Dynamically populate the dropdown with options
+        for (var folder in folderImages) {
+            if (folderImages.hasOwnProperty(folder)) {
+                var option = document.createElement('option');
+                option.value = folder;
+                option.text = "Chapter " + folder.slice(8);
+                folderSelect.appendChild(option);
+            }
+        }
+
+        function loadImagesFromFolder(folderPath, totalImages) {
+    imageContainer.innerHTML = '';
+
+    for (var i = 1; i <= totalImages; i++) {
+        var imgDiv = document.createElement('div');
+        imgDiv.classList.add('image-container');
+        var img = document.createElement('img');
+        var paddedNumber = ("000" + i).slice(-3); // Pad the number with leading zeros
+        img.src = "C/" + folderPath + "/" + paddedNumber + ".jpg"; // Use paddedNumber
+        img.alt = "Image " + paddedNumber; // Use paddedNumber
+        imgDiv.appendChild(img);
+        imageContainer.appendChild(imgDiv);
+
+        var br = document.createElement('br');
+        imageContainer.appendChild(br);
+    }
+}
+
+
+
+        folderSelect.addEventListener('change', function () {
+            var selectedFolder = this.value;
+            var folderPath = "./" + selectedFolder;
+            var totalImages = folderImages[selectedFolder];
+            loadImagesFromFolder(folderPath, totalImages);
+
+            history.pushState(null, '', '?REZE=' + selectedFolder);
+
+            localStorage.setItem('selectedFolder', selectedFolder);
+        });
+
+        prevBtnd.addEventListener('click', function () {
+    var currentIndex = Array.from(folderSelect.options).findIndex(option => option.value === folderSelect.value);
+    var prevIndex = currentIndex > 0 ? currentIndex - 1 : 0;
+    folderSelect.value = folderSelect.options[prevIndex].value;
+
+    var selectedFolder = folderSelect.value;
+    // Added reload logic
+    history.replaceState(null, '', '?REZE=' + selectedFolder);
+    window.location.reload(); // Refresh the page to load new folder's images
+});
+
+nextBtnd.addEventListener('click', function () {
+    var currentIndex = Array.from(folderSelect.options).findIndex(option => option.value === folderSelect.value);
+    var nextIndex = currentIndex < folderSelect.options.length - 1 ? currentIndex + 1 : folderSelect.options.length - 1;
+    folderSelect.value = folderSelect.options[nextIndex].value;
+
+    var selectedFolder = folderSelect.value;
+    // Added reload logic
+    history.replaceState(null, '', '?REZE=' + selectedFolder);
+    window.location.reload(); // Refresh the page to load new folder's images
+});
+
+        // Function to get URL parameters
+        function getUrlParam(parameter, defaultValue) {
+            var urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(parameter) || defaultValue;
+        }
+
+        // Get the folder from URL parameter or use the default value
+        var initialFolder = getUrlParam('REZE', folderSelect.value);
+        folderSelect.value = initialFolder;
+        var initialFolderPath = "./" + initialFolder;
+        var initialTotalImages = folderImages[initialFolder];
+        loadImagesFromFolder(initialFolderPath, initialTotalImages);
+	</script>
+<script>
+        var imageContainer = document.getElementById('imageContainer');
+        var folderSelect = document.getElementById('folderSelect');
+        var prevBtn = document.getElementById('prevBtn');
+        var nextBtn = document.getElementById('nextBtn');
+
+        var folderImages = {
+                "Chapter_1": 57,
+				"Chapter_2": 26,
+				"Chapter_3": 24,
+				"Chapter_4": 20,
+				"Chapter_5": 20,
+				"Chapter_6": 20,
+				"Chapter_7": 26,
+				"Chapter_8": 24,
+				"Chapter_9": 20,
+				"Chapter_10": 20,
+				"Chapter_11": 20,
+				"Chapter_12": 19,
+				"Chapter_13": 19,
+				"Chapter_14": 19,
+				"Chapter_15": 22,
+				"Chapter_16": 29,
+				"Chapter_17": 25,
+				"Chapter_18": 20,
+				"Chapter_19": 19,
+				"Chapter_20": 19,
+				"Chapter_21": 20,
+				"Chapter_22": 20,
+				"Chapter_23": 20,
+				"Chapter_24": 19,
+				"Chapter_25": 30,
+				"Chapter_26": 26,
+				"Chapter_27": 19,
+				"Chapter_28": 20,
+				"Chapter_29": 22,
+				"Chapter_30": 20,
+				"Chapter_31": 20,
+				"Chapter_32": 19,
+				"Chapter_33": 22,
+				"Chapter_34": 26,
+				"Chapter_35": 26,
+				"Chapter_36": 19,
+				"Chapter_37": 17,
+				"Chapter_38": 26,
+				"Chapter_39": 20,
+				"Chapter_40": 20,
+				"Chapter_41": 20,
+				"Chapter_42": 20,
+				"Chapter_43": 33,
+				"Chapter_44": 24,
+				"Chapter_45": 20,
+				"Chapter_46": 22,
+				"Chapter_47": 20,
+				"Chapter_48": 20,
+				"Chapter_49": 21,
+				"Chapter_50": 18,
+				"Chapter_51": 20,
+				"Chapter_52": 27,
+				"Chapter_53": 28,
+				"Chapter_54": 20,
+				"Chapter_55": 20,
+				"Chapter_56": 20,
+				"Chapter_57": 20,
+				"Chapter_58": 19,
+				"Chapter_59": 23,
+				"Chapter_60": 22,
+				"Chapter_61": 31,
+				"Chapter_62": 26,
+				"Chapter_63": 19,
+				"Chapter_64": 19,
+				"Chapter_65": 19,
+				"Chapter_66": 20,
+				"Chapter_67": 20,
+				"Chapter_68": 19,
+				"Chapter_69": 18,
+				"Chapter_70": 28,
+				"Chapter_71": 28,
+				"Chapter_72": 20,
+				"Chapter_73": 22,
+				"Chapter_74": 20,
+				"Chapter_75": 16,
+				"Chapter_76": 16,
+				"Chapter_77": 19,
+				"Chapter_78": 17,
+				"Chapter_79": 25,
+				"Chapter_80": 26,
+				"Chapter_81": 18,
+				"Chapter_82": 19,
+				"Chapter_83": 17,
+				"Chapter_84": 19,
+				"Chapter_85": 23,
+				"Chapter_86": 19,
+				"Chapter_87": 17,
+				"Chapter_88": 25,
+				"Chapter_89": 25,
+				"Chapter_90": 21,
+				"Chapter_91": 21,
+				"Chapter_92": 19,
+				"Chapter_93": 18,
+				"Chapter_94": 20,
+				"Chapter_95": 19,
+				"Chapter_96": 18,
+				"Chapter_97": 27,
+            
+            // Add more entries as needed
+        };
+
+        // Dynamically populate the dropdown with options
+        for (var folder in folderImages) {
+            if (folderImages.hasOwnProperty(folder)) {
+                var option = document.createElement('option');
+                option.value = folder;
+                option.text = "Chapter " + folder.slice(8);
+                folderSelect.appendChild(option);
+            }
+        }
+
+        function loadImagesFromFolder(folderPath, totalImages) {
+    imageContainer.innerHTML = '';
+
+    for (var i = 1; i <= totalImages; i++) {
+        var imgDiv = document.createElement('div');
+        imgDiv.classList.add('image-container');
+        var img = document.createElement('img');
+        var paddedNumber = ("000" + i).slice(-3); // Pad the number with leading zeros
+        img.src = "C/" + folderPath + "/" + paddedNumber + ".jpg"; // Use paddedNumber
+        img.alt = "Image " + paddedNumber; // Use paddedNumber
+        imgDiv.appendChild(img);
+        imageContainer.appendChild(imgDiv);
+
+        var br = document.createElement('br');
+        imageContainer.appendChild(br);
+    }
+}
+
+
+
+        folderSelect.addEventListener('change', function () {
+            var selectedFolder = this.value;
+            var folderPath = "./" + selectedFolder;
+            var totalImages = folderImages[selectedFolder];
+            loadImagesFromFolder(folderPath, totalImages);
+
+            history.pushState(null, '', '?REZE=' + selectedFolder);
+
+            localStorage.setItem('selectedFolder', selectedFolder);
+        });
+
+        prevBtn.addEventListener('click', function () {
+    var currentIndex = Array.from(folderSelect.options).findIndex(option => option.value === folderSelect.value);
+    var prevIndex = currentIndex > 0 ? currentIndex - 1 : 0;
+    folderSelect.value = folderSelect.options[prevIndex].value;
+
+    var selectedFolder = folderSelect.value;
+    // Added reload logic
+    history.replaceState(null, '', '?REZE=' + selectedFolder);
+    window.location.reload(); // Refresh the page to load new folder's images
+});
+
+nextBtn.addEventListener('click', function () {
+    var currentIndex = Array.from(folderSelect.options).findIndex(option => option.value === folderSelect.value);
+    var nextIndex = currentIndex < folderSelect.options.length - 1 ? currentIndex + 1 : folderSelect.options.length - 1;
+    folderSelect.value = folderSelect.options[nextIndex].value;
+
+    var selectedFolder = folderSelect.value;
+    // Added reload logic
+    history.replaceState(null, '', '?REZE=' + selectedFolder);
+    window.location.reload(); // Refresh the page to load new folder's images
+});
+
+        // Function to get URL parameters
+        function getUrlParam(parameter, defaultValue) {
+            var urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(parameter) || defaultValue;
+        }
+
+        // Get the folder from URL parameter or use the default value
+        var initialFolder = getUrlParam('REZE', folderSelect.value);
+        folderSelect.value = initialFolder;
+        var initialFolderPath = "./" + initialFolder;
+        var initialTotalImages = folderImages[initialFolder];
+        loadImagesFromFolder(initialFolderPath, initialTotalImages);
+    </script>
+
+</body>
+</html>
